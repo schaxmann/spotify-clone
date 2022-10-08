@@ -31,6 +31,8 @@ const musicMenu = [
   { name: "Favorites", icon: MdFavorite, route: "/favorites" },
 ];
 
+const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
+
 const Sidebar = () => {
   return (
     <Box
@@ -40,7 +42,7 @@ const Sidebar = () => {
       paddingX="5px"
       color="gray"
     >
-      <Box paddingY="20px">
+      <Box paddingTop="20px" height="100%">
         <Box width="200px" marginBottom="20px" paddingX="15px">
           <NextImage src="/notify.png" height={51.35} width={130} />
         </Box>
@@ -69,7 +71,7 @@ const Sidebar = () => {
             {musicMenu.map((menu) => (
               <ListItem paddingX="20px" fontSize="16px" key={menu.name}>
                 <LinkBox>
-                  <NextLink href={menu.route}>
+                  <NextLink href={menu.route} passHref>
                     <LinkOverlay>
                       <ListIcon
                         as={menu.icon}
@@ -83,7 +85,29 @@ const Sidebar = () => {
               </ListItem>
             ))}
           </List>
-          <Divider color="gray.800" marginTop="15px"></Divider>
+        </Box>
+        <Divider color="gray.800" marginTop="15px"></Divider>
+        <Box
+          height="66%"
+          overflowY="auto"
+          paddingY="20px"
+          sx={{
+            "&::-webkit-scrollbar": {
+              width: "0px",
+            },
+          }}
+        >
+          <List spacing={2}>
+            {playlists.map((playlist) => (
+              <ListItem paddingX="20px" key={playlist}>
+                <LinkBox>
+                  <NextLink href="/" passHref>
+                    <LinkOverlay>{playlist}</LinkOverlay>
+                  </NextLink>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
         </Box>
       </Box>
     </Box>
