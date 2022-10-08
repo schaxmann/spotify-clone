@@ -16,12 +16,19 @@ import {
   MdLibraryMusic,
   MdPlaylistAdd,
   MdFavorite,
+  MdPersonalInjury,
 } from "react-icons/md";
+import { Menu } from "@chakra-ui/react";
 
 const navMenu = [
   { name: "Home", icon: MdHome, route: "/" },
   { name: "Search", icon: MdSearch, route: "/search" },
   { name: "Your Library", icon: MdLibraryMusic, route: "/library" },
+];
+
+const musicMenu = [
+  { name: "Create Playlist", icon: MdPlaylistAdd, route: "/" },
+  { name: "Favorites", icon: MdFavorite, route: "/favorites" },
 ];
 
 const Sidebar = () => {
@@ -56,6 +63,27 @@ const Sidebar = () => {
               </ListItem>
             ))}
           </List>
+        </Box>
+        <Box>
+          <List spacing={2}>
+            {musicMenu.map((menu) => (
+              <ListItem paddingX="20px" fontSize="16px" key={menu.name}>
+                <LinkBox>
+                  <NextLink href={menu.route}>
+                    <LinkOverlay>
+                      <ListIcon
+                        as={menu.icon}
+                        color="white"
+                        marginRight="20px"
+                      />
+                      {menu.name}
+                    </LinkOverlay>
+                  </NextLink>
+                </LinkBox>
+              </ListItem>
+            ))}
+          </List>
+          <Divider color="gray.800" marginTop="15px"></Divider>
         </Box>
       </Box>
     </Box>
