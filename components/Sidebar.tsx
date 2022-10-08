@@ -27,8 +27,8 @@ const Sidebar = () => {
       color="gray"
     >
       <Box paddingY="20px">
-        <Box width="120px" marginBottom="20px" paddingX="15px">
-          <NextImage src="/notify.png" height={50} width={120} />
+        <Box width="200px" marginBottom="20px" paddingX="15px">
+          <NextImage src="/notify.png" height={51.35} width={130} />
         </Box>
       </Box>
     </Box>
