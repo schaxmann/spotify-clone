@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -23,7 +23,7 @@ model Song {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name String
-  artist Artist @relation(fields:[artistID], references:[id])
+  artist Artist @relation(fields:[artistId], references:[id])
   artistId Int
 }
 
