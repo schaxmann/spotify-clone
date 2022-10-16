@@ -7,8 +7,7 @@ import { useStoreRehydrated } from "easy-peasy";
 import { LayoutGroupContext } from "framer-motion";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  res.status(200).json({ page: "sign-up" });
-  const salt = bcrypt.genSaltSync;
+  const salt = bcrypt.genSaltSync();
   const { email, password } = req.body;
   let user;
   try {
@@ -31,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       time: Date.now(),
     },
     "hello",
-    { espiresIn: "8h" }
+    { expiresIn: "8h" }
   );
   res.setHeader(
     "Set-Cookie",
