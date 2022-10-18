@@ -29,7 +29,7 @@ const AuthForm: FC<{ mode: string }> = ({ mode }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <Button type="submit" bg="green.500" isLoading={isLoading}>
-              {mode}
+              {mode.slice(0, -3) + " " + mode.substring(mode.length - 2)}
             </Button>
           </form>
         </Box>
