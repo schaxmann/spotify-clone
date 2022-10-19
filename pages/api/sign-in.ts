@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.setHeader(
       "Set-Cookie",
-      cookie.serialize("NOTIFY-ACCESS", token, {
+      cookie.serialize("NOTIFY_ACCESS", token, {
         httpOnly: true,
         maxAge: 8 * 60 * 60,
         path: "/",
