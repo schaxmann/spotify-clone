@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { FC, useState } from "react";
 import { useSWRConfig } from "swr";
 import { auth } from "../lib/mutations";
+import NextImage from "next/image";
 
 const AuthForm: FC<{ mode: string }> = ({ mode }) => {
   const [email, setEmail] = useState("");
@@ -12,12 +13,13 @@ const AuthForm: FC<{ mode: string }> = ({ mode }) => {
 
   return (
     <Box height="100vh" width="100vw" bg="black" color="white">
-      <Flex justify="center" align="center" height="100px">
-        {mode.slice(0, 1).toUpperCase() +
-          mode.slice(1, -3) +
-          " " +
-          mode.slice(5, 6).toUpperCase() +
-          mode.substring(mode.length - 1)}
+      <Flex
+        justify="center"
+        align="center"
+        height="100px"
+        borderBottom="white 1px solid"
+      >
+        <NextImage src="/notify.png" height={51.35} width={130}></NextImage>
       </Flex>
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Box padding="50px" bg="gray.900" borderRadius="6px">
