@@ -1,6 +1,4 @@
-import { NextApiRequest } from "next";
-import { NextApiRequestCookies } from "next/dist/server/api-utils";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 const securePages = ["/", "/playlist", "/library"];
 
