@@ -9,7 +9,7 @@ export default function middleware(req) {
     const token = req.cookies.NOTIFY_ACCESS;
 
     if (!token) {
-      console.log("na");
+      console.log("no token");
     } else {
       return NextResponse.rewrite(`/`);
     }
